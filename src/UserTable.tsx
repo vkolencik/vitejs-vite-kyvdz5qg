@@ -9,14 +9,14 @@ export const UserTable = (props: UserTableProps) => (
     <thead>
       <tr>
         <th>Name</th>
-        <th>Age</th>
+        <th>Email</th>
       </tr>
     </thead>
     <tbody className="bg-white dark:bg-gray-800">
       {props.users.map(u => (
         <tr className="border-b border-gray-100 p-4 pl-8 text-gray-500 dark:border-gray-700 dark:text-gray-400">
           <td className="border-b border-gray-100 p-4 pl-8 text-gray-500 dark:border-gray-700 dark:text-gray-400">{u.name}</td>
-          <td>{u.age}</td>
+          <td>{u.email}</td>
         </tr>
       ))}
     </tbody>

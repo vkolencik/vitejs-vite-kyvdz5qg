@@ -1,17 +1,24 @@
+import { useEffect, useState } from 'react';
 import './App.css'
 import {UserFilter} from './UserFilter'
 import { UserTable } from './UserTable'
-import type { User } from './data'
+import { searchUsers, type User } from './data'
 
 function App() {
+  const [users, setUsers] = useState<User[]>([]);
+  const [query, setQuery] = useState('');
+  
+  useEffect(() => {
+    searchUsers(query).then(results => setUsers(results))
+  }, [query]);
 
-  const users: User[] = [
-    {name: 'Vojta', age: 41},
-    {name: 'John', age: 1},
-  ]
+  const search = (q: string) => {
+    setQuery(q)
+  }
+    
   return (
     <>
-      <UserFilter/>
+      <UserFilter onSearchUpdate={q => search(q)}/>
       <UserTable users={users}/>
     </>
   )
