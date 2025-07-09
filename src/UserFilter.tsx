@@ -1,6 +1,6 @@
 export const UserFilter = () => (
-  <form>
-    <input type="search"/>
-    <button type="submit">🔍 Search</button>
+  <form className="bg-zinc-200">
+    <input type="search" className="border rounded-md"/>
+    <button type="submit" className="p-12">🔍 Search</button>
   </form>
 )
