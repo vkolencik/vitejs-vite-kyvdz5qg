@@ -14,7 +14,7 @@ export const UserTable = (props: UserTableProps) => (
     </thead>
     <tbody className="bg-white dark:bg-gray-800">
       {props.users.map(u => (
-        <tr className="border-b border-gray-100 p-4 pl-8 text-gray-500 dark:border-gray-700 dark:text-gray-400">
+        <tr className="border-b border-gray-100 p-4 pl-8 text-gray-500 dark:border-gray-700 dark:text-gray-400" key={u.email}>
           <td className="border-b border-gray-100 p-4 pl-8 text-gray-500 dark:border-gray-700 dark:text-gray-400">{u.name}</td>
           <td>{u.email}</td>
         </tr>

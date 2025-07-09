@@ -9,16 +9,19 @@ function App() {
   const [query, setQuery] = useState('');
   
   useEffect(() => {
-    searchUsers(query).then(results => setUsers(results))
+    const timeoutId = setTimeout(
+      () => {
+        searchUsers(query)
+          .then(results => setUsers(results))
+      },
+      300);
+      
+      return () => clearTimeout(timeoutId);
   }, [query]);
 
-  const search = (q: string) => {
-    setQuery(q)
-  }
-    
   return (
     <>
-      <UserFilter onSearchUpdate={q => search(q)}/>
+      <UserFilter onSearchUpdate={setQuery}/>
       <UserTable users={users}/>
     </>
   )
